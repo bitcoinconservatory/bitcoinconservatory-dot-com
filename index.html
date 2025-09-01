@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Bitcoin Conservatory: a modern conservatory where art is cultivated and data is preserved on the Bitcoin timechain." />
+  <meta name="theme-color" content="#124C2E" />
+  <title>Bitcoin Conservatory</title>
+  <!-- Open Graph for rich previews -->
+  <meta property="og:title" content="Bitcoin Conservatory" />
+  <meta property="og:description" content="A conservatory for the arts with permanence on the Bitcoin timechain." />
+  <meta property="og:type" content="website" />
+  
+  <style>
+    /* CSS reset (minimal) */
+    *, *::before, *::after { box-sizing: border-box; }
+    html:focus-within { scroll-behavior: smooth; }
+    body { margin: 0; line-height: 1.6; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+
+    /* Color system derived from the provided green logo */
+    :root {
+      --bg: #FAF9F6;           /* off-white paper */
+      --fg: #0F2B1D;           /* near-black green for text */
+      --brand: #1D6B3A;        /* primary green */
+      --brand-700: #14502A;    /* darker for contrast */
+      --brand-50: #E6F2EA;     /* light tint */
+      --accent: #0B8F36;       /* accessible accent */
+      --ring: #74C69D;         /* focus ring */
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0E1211;
+        --fg: #E7F1EA;
+        --brand: #51B37B;
+        --brand-700: #2C7A4B;
+        --brand-50: #18221D;
+        --accent: #74C69D;
+        --ring: #99E2B4;
+      }
+    }
+
+    body { background: var(--bg); color: var(--fg); }
+
+    .container { max-width: 72rem; margin: 0 auto; padding: 1rem; }
+
+    /* Skip link */
+    .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+    .skip-link:focus { left: 1rem; top: 1rem; width: auto; height: auto; padding: .5rem .75rem; background: var(--brand); color: white; border-radius: .5rem; outline: 3px solid var(--ring); }
+
+    header[role="banner"] { position: sticky; top: 0; backdrop-filter: blur(8px); background: color-mix(in srgb, var(--bg) 80%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--fg) 10%, transparent); z-index: 10; }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .brand { display: inline-flex; align-items: center; gap: .75rem; text-decoration: none; color: var(--fg); }
+    .brand-title { font-weight: 700; letter-spacing: .02em; }
+
+    nav[aria-label="Primary"] ul { list-style: none; margin: 0; padding: 0; display: flex; gap: .5rem; flex-wrap: wrap; }
+    nav[aria-label="Primary"] a { display: inline-block; padding: .5rem .75rem; border-radius: .5rem; text-decoration: none; color: var(--fg); }
+    nav[aria-label="Primary"] a[aria-current="page"],
+    nav[aria-label="Primary"] a:focus-visible,
+    nav[aria-label="Primary"] a:hover { background: var(--brand-50); outline: none; }
+
+    .hero { display: grid; grid-template-columns: 1fr; place-items: center; text-align: center; padding: 6rem 1rem 4rem; gap: 1.25rem; }
+    .hero h1 { font-size: clamp(2rem, 3.5vw + 1rem, 3.25rem); line-height: 1.15; margin: 0; }
+    .sub { font-size: clamp(1.05rem, 1.5vw + .75rem, 1.25rem); max-width: 45rem; margin: 0 auto; }
+
+    .cta { display: inline-flex; align-items: center; gap: .5rem; padding: .8rem 1rem; border-radius: .75rem; background: var(--brand); color: #fff; text-decoration: none; font-weight: 600; border: 2px solid transparent; }
+    .cta:focus-visible { outline: none; border-color: var(--ring); box-shadow: 0 0 0 4px color-mix(in srgb, var(--ring) 35%, transparent); }
+    .cta:hover { background: var(--brand-700); }
+
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1rem; margin-block: 2rem 3rem; }
+    .card { background: var(--brand-50); border: 1px solid color-mix(in srgb, var(--brand) 25%, var(--bg)); border-radius: 1rem; padding: 1rem; }
+    .card h3 { margin-top: 0; }
+
+    figure { margin: 0; }
+    figcaption { font-size: .9rem; opacity: .85; }
+
+    footer { border-top: 1px solid color-mix(in srgb, var(--fg) 10%, transparent); margin-top: 3rem; }
+    .foot { display: grid; grid-template-columns: 1fr; gap: 1rem; padding-block: 1.5rem; }
+    .meta { font-size: .875rem; opacity: .9; }
+
+    /* Motion safety */
+    @media (prefers-reduced-motion: reduce) {
+      html:focus-within { scroll-behavior: auto; }
+      * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header role="banner">
+    <div class="container nav">
+      <a class="brand" href="#" aria-label="Bitcoin Conservatory home">
+        <!-- Inline, accessible, abstract logo (leaf + B mark) -->
+        <svg width="40" height="40" viewBox="0 0 64 64" role="img" aria-labelledby="logoTitle logoDesc" focusable="false" xmlns="http://www.w3.org/2000/svg">
+          <title id="logoTitle">Bitcoin Conservatory emblem</title>
+          <desc id="logoDesc">Circular mark combining a stylized leaf and a monogram B.</desc>
+          <defs>
+            <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stop-color="var(--brand)"/>
+              <stop offset="100%" stop-color="var(--accent)"/>
+            </linearGradient>
+          </defs>
+          <circle cx="32" cy="32" r="30" fill="none" stroke="url(#g)" stroke-width="4"/>
+          <path d="M18 39c7-1 14-7 16-16-6 1-12 6-16 16Z" fill="url(#g)"/>
+          <path d="M34 16c6 0 10 4 10 8 0 3-2 5-4 6 3 1 6 3 6 7 0 5-5 9-12 9h-9V16h9Zm-3 7h3c2 0 4 2 4 4s-2 3-4 3h-3v-7Zm0 13h4c3 0 5 2 5 4s-2 4-5 4h-4v-8Z" fill="url(#g)"/>
+        </svg>
+        <span class="brand-title" aria-hidden="false">Bitcoin Conservatory</span>
+      </a>
+      <nav aria-label="Primary">
+        <ul role="list">
+          <li><a href="#mission" aria-current="page">Mission</a></li>
+          <li><a href="#method">Method</a></li>
+          <li><a href="#join">Join</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" role="main">
+    <section class="container hero" aria-labelledby="h-hero">
+      <h1 id="h-hero">Where art meets permanence.</h1>
+      <p class="sub">We cultivate the arts like a traditional conservatory while preserving ideas and works by anchoring arbitrary data directly to the <strong>Bitcoin timechain</strong>—for authenticity, continuity, and durable access.</p>
+      <p>
+        <a class="cta" href="#join" role="button" aria-label="Learn how to participate">Get involved</a>
+      </p>
+    </section>
+
+    <section id="mission" class="container" aria-labelledby="h-mission">
+      <header>
+        <h2 id="h-mission">Our mission</h2>
+      </header>
+      <div class="features" role="list">
+        <article class="card" role="listitem" aria-labelledby="f1">
+          <h3 id="f1">Cultivate</h3>
+          <p>Programs, workshops, and studios advancing performance, composition, and visual disciplines.</p>
+        </article>
+        <article class="card" role="listitem" aria-labelledby="f2">
+          <h3 id="f2">Conserve</h3>
+          <p>Proofs of existence and integrity recorded on the timechain for long‑term reference.</p>
+        </article>
+        <article class="card" role="listitem" aria-labelledby="f3">
+          <h3 id="f3">Connect</h3>
+          <p>Artists, archivists, and technologists collaborating on open standards for cultural memory.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="method" class="container" aria-labelledby="h-method">
+      <header>
+        <h2 id="h-method">How it works</h2>
+      </header>
+      <figure role="group" aria-labelledby="cap-method">
+        <img src="data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 200' aria-hidden='true'>\
+  <rect width='600' height='200' fill='white' />\
+  <g font-family='system-ui,Segoe UI,Roboto' font-size='16' fill='black' stroke='black' stroke-width='2'>\
+    <rect x='20' y='50' width='140' height='100' fill='none' rx='10'/>\
+    <text x='90' y='105' text-anchor='middle'>Artist</text>\
+    <line x1='160' y1='100' x2='260' y2='100'/>\
+    <polygon points='260,100 246,92 246,108'/>\
+    <rect x='260' y='50' width='140' height='100' fill='none' rx='10'/>\
+    <text x='330' y='90' text-anchor='middle'>Hash</text>\
+    <text x='330' y='115' text-anchor='middle'>(metadata)</text>\
+    <line x1='400' y1='100' x2='500' y2='100'/>\
+    <polygon points='500,100 486,92 486,108'/>\
+    <rect x='500' y='50' width='80' height='100' fill='none' rx='10'/>\
+    <text x='540' y='105' text-anchor='middle'>Timechain</text>\
+  </g>\
+</svg>" width="100%" height="auto" alt="Diagram: Artist data is hashed, then anchored to the Bitcoin timechain." />
+        <figcaption id="cap-method">We store minimal, verifiable references (e.g., content digests and metadata) anchored to the timechain; rich media remains in conventional storage with integrity checks.</figcaption>
+      </figure>
+    </section>
+
+    <section id="join" class="container" aria-labelledby="h-join">
+      <header>
+        <h2 id="h-join">Get involved</h2>
+      </header>
+      <p>Early contributors shape standards and programs. This is the ground floor.</p>
+      <form aria-describedby="join-help" method="post" action="mailto:hello@example.com">
+        <div>
+          <label for="name">Name</label><br />
+          <input id="name" name="name" type="text" autocomplete="name" required aria-required="true" />
+        </div>
+        <div>
+          <label for="email">Email</label><br />
+          <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required aria-required="true" />
+        </div>
+        <div>
+          <label for="note">Note</label><br />
+          <textarea id="note" name="note" rows="4"></textarea>
+        </div>
+        <p id="join-help" class="meta">Your info is used to contact you about participation. No spam.</p>
+        <button class="cta" type="submit">Request details</button>
+      </form>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container foot">
+      <small class="meta">© <span id="year"></span> Bitcoin Conservatory • <a href="#mission">Mission</a> • <a href="#method">Method</a> • <a href="#join">Join</a></small>
+    </div>
+  </footer>
+
+  <script>
+    // Set year text content for accuracy and screen-reader simplicity
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
