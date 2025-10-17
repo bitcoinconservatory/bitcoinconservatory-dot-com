@@ -1,0 +1,3 @@
+remote_theme: bitcoinconservatory/minimal-mistakes@main
+plugins:
+  - jekyll-include-cache
