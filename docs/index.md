@@ -1,4 +1,7 @@
-# Where arbitrary data meets permanence.
+---
+title: "Bitcoin Conservatory: Where arbitrary data meets permanence."
+show_title: true
+---
 
 Our mission is to:
 
