@@ -1,0 +1,21 @@
+main:
+  - title: "Intro"
+    url: /
+  - title: "Learn"
+    url: /learn/
+  - title: "Scholarship"
+    url: /scholarship/
+
+# FUTURE: learn sidebar nav — auto-populated from lesson classes
+# learn:
+#   - title: "Basics"
+#     children:
+#       - title: "Intro to Arbitrary Data"
+#         url: /learn/intro-to-arbitrary-data/
+
+# FUTURE: scholarship nav — future sub-pages
+# scholarship:
+#   - title: "Apply"
+#     url: /scholarship/apply/
+#   - title: "Recipients"
+#     url: /scholarship/recipients/
