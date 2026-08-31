@@ -1,0 +1,59 @@
+{% assign items = site[page.collection_ref] %}
+
+{% unless items %}
+  {% assign items = site.lessons %}
+{% endunless %}
+
+{% assign tax_field = page.taxonomy_field | default: "categories" %}
+{% assign tax_label = page.taxonomy_label | default: "Categories" %}
+
+{% comment %}
+  Build a sorted list of unique taxonomy words from collection docs.
+  Because site.tags / site.categories only aggregate Jekyll posts (not
+  collection documents), we group site[collection] docs by front matter
+  instead. Each taxonomy word maps to an anchor (#slug) so the
+  taxonomy-links generated on each lesson page (path/#slug) resolve here.
+{% endcomment %}
+
+{% capture item_html %}{% endcapture %}
+{% unless items == empty %}
+  {% assign words = "" | split: "," %}
+  {% for item in items %}
+    {% if item[tax_field] %}
+      {% for w in item[tax_field] %}
+        {% assign words = words | push: w %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+
+  {% assign words_sorted = words | uniq | sort_natural %}
+
+  {% if words_sorted.size > 0 %}
+    <h1 id="page-title" class="page__title">{{ page.title }}</h1>
+
+    <ul class="taxonomy__index">
+      {% for word in words_sorted %}
+        <li>
+          <a href="#{{ word | slugify }}">
+            <strong>{{ word }}</strong>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+
+    {% for word in words_sorted %}
+      <section id="{{ word | slugify }}" class="taxonomy__section">
+        <h2 class="archive__subtitle">{{ word }}</h2>
+        <div class="entries-list">
+          {% for entry in items %}
+            {% if entry[tax_field] contains word %}
+              {% assign post = entry %}
+              {% include archive-single.html type="list" %}
+            {% endif %}
+          {% endfor %}
+        </div>
+        <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
+      </section>
+    {% endfor %}
+  {% endif %}
+{% endunless %}

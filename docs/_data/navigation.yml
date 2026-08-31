@@ -6,12 +6,14 @@ main:
   - title: "Scholarship"
     url: /scholarship/
 
-# FUTURE: learn sidebar nav — auto-populated from lesson classes
-# learn:
-#   - title: "Basics"
-#     children:
-#       - title: "Intro to Arbitrary Data"
-#         url: /learn/intro-to-arbitrary-data/
+# Learn sidebar nav — groups lessons/articles by category/topic
+learn:
+  - title: "Categories"
+    children:
+      - title: "All"
+        url: /categories/
+      - title: "Tags"
+        url: /tags/
 
 # FUTURE: scholarship nav — future sub-pages
 # scholarship:

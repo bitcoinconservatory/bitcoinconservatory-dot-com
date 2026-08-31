@@ -1,10 +1,10 @@
 ---
-title: "Learn"
+title: "Tags"
 layout: single
-permalink: /learn/
+permalink: /tags/
 collection_ref: lessons
-taxonomy_field: categories
-taxonomy_label: "Categories"
+taxonomy_field: tags
+taxonomy_label: "Tags"
 sidebar:
   nav: "learn"
 ---

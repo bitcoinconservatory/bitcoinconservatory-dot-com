@@ -1,6 +1,8 @@
 ---
 title: "Intro to Arbitrary Data"
 collection: lessons
+categories:
+  - basics
 tags:
   - bitcoin
   - arbitrary-data

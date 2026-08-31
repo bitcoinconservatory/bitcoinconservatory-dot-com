@@ -1,7 +1,7 @@
 ---
-title: "Learn"
+title: "Categories"
 layout: single
-permalink: /learn/
+permalink: /categories/
 collection_ref: lessons
 taxonomy_field: categories
 taxonomy_label: "Categories"

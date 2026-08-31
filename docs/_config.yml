@@ -51,6 +51,16 @@ collections:
     permalink: /learn/:path/
 
 # ---------------------------------------------------------------------------
+# Category / tag archives
+# ---------------------------------------------------------------------------
+category_archive:
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: liquid
+  path: /tags/
+
+# ---------------------------------------------------------------------------
 # Front Matter defaults
 # ---------------------------------------------------------------------------
 defaults:
@@ -61,6 +71,7 @@ defaults:
       layout: single
       author_profile: false
       share: false
+      categories: []
       # FUTURE per-lesson display defaults:
       # toc: true
       # read_time: true
