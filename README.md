@@ -1,31 +1,43 @@
 # bitcoinconservatory-dot-com
 
-Website for bitcoinconservatory.com
+Website for [bitcoinconservatory.com](https://bitcoinconservatory.com).
 
-Served from `/docs/` and built with Jekyll on GitHub Pages using a small set of custom layouts and a plain-CSS dark, minimalist theme (no external theme dependency).
+A simple Jekyll site served from `/docs/` on GitHub Pages. No external theme — just a few small layouts and one plain stylesheet.
 
-## Content
+## Add an article
 
-Articles and lessons live in `docs/_lessons/` as Markdown files with YAML front matter:
+Create a Markdown file in `docs/_lessons/`:
 
-```yaml
+```md
 ---
-title: "Lesson Title"
+title: "Your Article Title"
 collection: lessons
 categories:
   - basics
 tags:
-  - topic-a
-  - topic-b
+  - some-topic
 ---
+
+Body text here, in Markdown.
 ```
 
 - Each file becomes a page at `/learn/<slug>/`.
-- `categories` / `tags` drive the Learn, Categories, and Tags index pages.
+- `categories` and `tags` group articles on the Learn, Categories, and Tags pages.
 
-## Layout
+## Files
 
-- `_layouts/default.html` — base skeleton (nav + footer)
-- `_layouts/landing.html` — homepage
-- `_layouts/single.html` — article/lesson and archive pages
-- `assets/css/main.css` — single plain stylesheet
+- `_layouts/` — `default.html` (skeleton + nav + footer), `landing.html` (homepage), `single.html` (articles/pages)
+- `_pages/` — Learn, Categories, Tags, Scholarship
+- `_data/navigation.yml` — navigation
+- `assets/css/main.css` — the single stylesheet
+- `_config.yml` — site config and the `lessons` collection
+
+## Build locally
+
+```sh
+cd docs
+bundle install
+bundle exec jekyll serve
+```
+
+(Site is served from the `docs/` folder, matching how GitHub Pages serves it.)
