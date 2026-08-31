@@ -1,0 +1,9 @@
+<div class="courses">
+  {% for course in site.data.courses %}
+    <div class="course" tabindex="0">
+      <div class="course__name">{{ course.title }}</div>
+      <div class="course__desc">{{ course.description }}</div>
+      <span class="course__tooltip">Enrollment coming soon</span>
+    </div>
+  {% endfor %}
+</div>

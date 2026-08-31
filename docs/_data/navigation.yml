@@ -5,19 +5,3 @@ main:
     url: /learn/
   - title: "Scholarship"
     url: /scholarship/
-
-# Learn sidebar nav — groups lessons/articles by category/topic
-learn:
-  - title: "Categories"
-    children:
-      - title: "All"
-        url: /categories/
-      - title: "Tags"
-        url: /tags/
-
-# FUTURE: scholarship nav — future sub-pages
-# scholarship:
-#   - title: "Apply"
-#     url: /scholarship/apply/
-#   - title: "Recipients"
-#     url: /scholarship/recipients/

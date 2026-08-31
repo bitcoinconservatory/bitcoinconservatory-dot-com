@@ -1,0 +1,20 @@
+- title: "Foundations of Bitcoin"
+  description: "The timechain, blockspace, and why arbitrary data has a home in Bitcoin."
+
+- title: "Arbitrary Data on the Timechain"
+  description: "Recording knowledge permanently in blocks, and doing so the least harmfully."
+
+- title: "The Art of the Timechain"
+  description: "Art, music, and the written word inscribed on-chain as a legitimate act."
+
+- title: "Freedom & Censorship Resistance"
+  description: "Why the timechain is money and voice for friend and foe alike."
+
+- title: "Building with Blockspace"
+  description: "Hands-on technical work using the protocol on-chain and off-chain."
+
+- title: "The Science of Permanence"
+  description: "Hashing, cryptography, and verifiable, durable records."
+
+- title: "Advocacy & Polemics"
+  description: "Defending openness and pushing back against those who would take us backwards."
