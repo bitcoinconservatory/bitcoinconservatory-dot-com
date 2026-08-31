@@ -241,6 +241,7 @@ blockquote {
 .address__box:hover, .address__box:focus-visible { border-color: var(--accent); outline: none; }
 .address__value {
   flex: 1;
+  min-width: 0;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 0.9em;
   word-break: break-word;
