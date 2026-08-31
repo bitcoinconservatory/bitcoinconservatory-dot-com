@@ -9,4 +9,6 @@ sidebar:
   nav: "learn"
 ---
 
+<div markdown="0">
 {% include lessons-by-taxonomy.html %}
+</div>
