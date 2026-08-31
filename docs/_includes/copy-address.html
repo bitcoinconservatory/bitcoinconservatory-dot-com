@@ -1,0 +1,46 @@
+<div class="address" data-address="{{ include.address }}">
+  <p class="address__label">Silent Payment Address</p>
+  <div class="address__box" role="button" tabindex="0" aria-label="Silent payment address. Click to copy.">
+    <code class="address__value">{{ include.address }}</code>
+    <button type="button" class="address__copy" aria-label="Copy address">Copy</button>
+  </div>
+  <p class="address__status" aria-live="polite"></p>
+</div>
+
+<script>
+(function () {
+  var root = document.querySelector('[data-address="{{ include.address }}"]');
+  if (!root) return;
+  var value = root.getAttribute('data-address');
+  var valueEl = root.querySelector('.address__value');
+  var statusEl = root.querySelector('.address__status');
+  var btn = root.querySelector('.address__copy');
+
+  function copy() {
+    var done = function () {
+      statusEl.textContent = "Copied to clipboard";
+      setTimeout(function () { if (statusEl.textContent === "Copied to clipboard") statusEl.textContent = ""; }, 2000);
+    };
+    var fail = function () {
+      statusEl.textContent = "Copy failed - select the text and copy manually";
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(value).then(done, fail);
+    } else {
+      // Fallback: select the raw text
+      var range = document.createRange();
+      range.selectNodeContents(valueEl);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      try { document.execCommand('copy'); done(); } catch (e) { fail(); }
+    }
+  }
+
+  btn.addEventListener('click', function (e) { e.stopPropagation(); copy(); });
+  root.querySelector('.address__box').addEventListener('click', copy);
+  root.querySelector('.address__box').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copy(); }
+  });
+})();
+</script>
