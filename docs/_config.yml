@@ -1,40 +1,12 @@
-remote_theme: bitcoinconservatory/minimal-mistakes@master
-minimal_mistakes_skin: "dark"
-plugins:
-  - jekyll-include-cache
-
 # ---------------------------------------------------------------------------
 # Site metadata
 # ---------------------------------------------------------------------------
-locale: "en-US"
 title: "Bitcoin Conservatory"
 title_separator: "-"
 description: "Where arbitrary data meets permanence."
 url: "https://bitcoinconservatory.com"
 repository: "bitcoinconservatory/bitcoinconservatory-dot-com"
-
-# FUTURE: author block — name, avatar, bio, location, social links
-# author:
-#   name: ""
-#   avatar: "/assets/images/avatar.jpg"
-#   bio: ""
-#   location: ""
-#   links:
-#     - label: ""
-#       icon: ""
-#       url: ""
-
-# FUTURE: footer — copyright year range + footer social links
-# footer:
-#   since: "2025"
-#   links:
-#     - label: ""
-#       icon: ""
-#       url: ""
-
-# FUTURE: og_image — fallback social share image
-# og_image: "/assets/images/og-image.jpg"
-# og_image_alt: ""
+baseurl: ""
 
 # ---------------------------------------------------------------------------
 # Include directories
@@ -51,16 +23,6 @@ collections:
     permalink: /learn/:path/
 
 # ---------------------------------------------------------------------------
-# Category / tag archives
-# ---------------------------------------------------------------------------
-category_archive:
-  type: liquid
-  path: /categories/
-tag_archive:
-  type: liquid
-  path: /tags/
-
-# ---------------------------------------------------------------------------
 # Front Matter defaults
 # ---------------------------------------------------------------------------
 defaults:
@@ -69,26 +31,4 @@ defaults:
       type: lessons
     values:
       layout: single
-      author_profile: false
-      share: false
       categories: []
-      # FUTURE per-lesson display defaults:
-      # toc: true
-      # read_time: true
-      # show_date: true
-
-# ---------------------------------------------------------------------------
-# Permalinks
-# ---------------------------------------------------------------------------
-permalink: /:categories/:title/
-
-# FUTURE: pagination
-# paginate: 10
-# paginate_path: /page:num/
-
-# FUTURE: site search
-# search: true
-
-# FUTURE: analytics
-# analytics:
-#   provider: ""

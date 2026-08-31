@@ -1,0 +1,53 @@
+---
+layout: default
+---
+<div class="page-wrap">
+  <div class="page-wrap__content{% if page.sidebar %} has-sidebar{% endif %}">
+    {% if page.sidebar %}
+      <aside class="page-sidebar">
+        {% if page.sidebar.nav %}
+          {% assign nav = site.data.navigation[page.sidebar.nav] %}
+          {% if nav %}
+            <nav class="side-nav" aria-label="{{ page.title }}">
+              {% for group in nav %}
+                {% if group.title %}<p class="side-nav__subtitle">{{ group.title }}</p>{% endif %}
+                {% if group.children %}
+                  <ul>
+                    {% for child in group.children %}
+                      <li><a href="{{ child.url | relative_url }}">{{ child.title }}</a></li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              {% endfor %}
+            </nav>
+          {% endif %}
+        {% endif %}
+      </aside>
+    {% endif %}
+
+    <article class="page">
+      <header class="page__header">
+        <h1 class="page__title">{{ page.title }}</h1>
+        {% if page.categories or page.tags %}
+          {% unless page.taxonomy_grouping %}
+          <p class="page__meta">
+            {% if page.categories %}
+              {% for cat in page.categories %}
+                <a class="tax" href="{{ '/categories/' | relative_url }}#{{ cat | slugify }}">{{ cat }}</a>
+              {% endfor %}
+            {% endif %}
+            {% if page.tags %}
+              {% for tag in page.tags %}
+                <a class="tax" href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}">{{ tag }}</a>
+              {% endfor %}
+            {% endif %}
+          </p>
+          {% endunless %}
+        {% endif %}
+      </header>
+      <div class="page__body">
+        {{ content }}
+      </div>
+    </article>
+  </div>
+</div>

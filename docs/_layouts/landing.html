@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<section class="landing">
+  <div class="landing__inner">
+    <h1 class="landing__title">{{ page.title }}</h1>
+    <p class="landing__tagline">{{ page.tagline }}</p>
+    {% if page.cta_label and page.cta_url %}
+      <a class="landing__cta" href="{{ page.cta_url | relative_url }}">{{ page.cta_label }}</a>
+    {% endif %}
+    <div class="landing__body">
+      {{ content }}
+    </div>
+  </div>
+</section>
