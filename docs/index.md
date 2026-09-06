@@ -1,13 +1,15 @@
 ---
 layout: landing
 title: "Bitcoin Conservatory"
-tagline: "Where arbitrary data meets permanence."
+tagline: "Your path to knowledge and understanding."
 hero_image: /assets/images/hero-logo.png
 hero_alt: "Bitcoin Conservatory logo featuring wireframe curves and site name"
 cta_label: "Start Learning"
 cta_url: /learn/
 ---
 
-We are a conservatory devoted to defending knowledge and the freedom to interact with the timechain as a fundamental right — open to all, and to be protected against those who would take us backwards.
+BTC Conservatory exists to defend knowledge and the freedom to transact with the Timechain as a fundamental right, open to all.
 
-By paying fees for blockspace, storing arbitrary data is a legitimate and monetary act within Bitcoin's design. We research the least harmful ways to do so, use the protocol on-chain and off-chain, and impart the technical knowledge needed to understand Bitcoin through art, music, the written word, science, and polemics.
+Join our research and learning adventure as we work the protocol on-chain and off-chain. We teach through art, music, the written word, science, and the occasional polemic. To impart an understanding of Bitcoin doesn't need a computer science degree.
+
+Here, curiosity and creativity come together to meet you where you are.
