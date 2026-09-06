@@ -15,7 +15,14 @@
 <body>
   <header class="site-header">
     <div class="site-header__inner">
-      <a class="site-brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      <a class="site-brand" href="{{ '/' | relative_url }}">
+        <img src="{{ '/assets/images/logo-icon.svg' | relative_url }}"
+             alt=""
+             class="site-logo"
+             width="28"
+             height="21" />
+        {{ site.title }}
+      </a>
       <nav class="site-nav" aria-label="Main">
         {% for item in site.data.navigation.main %}
           <a href="{{ item.url | relative_url }}"{% if page.url == item.url %} class="is-active"{% endif %}>{{ item.title }}</a>

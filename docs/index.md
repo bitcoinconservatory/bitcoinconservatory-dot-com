@@ -2,6 +2,8 @@
 layout: landing
 title: "Bitcoin Conservatory"
 tagline: "Where arbitrary data meets permanence."
+hero_image: /assets/images/hero-logo.png
+hero_alt: "Bitcoin Conservatory logo featuring wireframe curves and site name"
 cta_label: "Start Learning"
 cta_url: /learn/
 ---

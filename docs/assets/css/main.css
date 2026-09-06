@@ -282,3 +282,18 @@ blockquote {
   margin: 0 auto;
   padding: 1.25em 1.5em;
 }
+
+/* ---- Logo ---- */
+.site-logo {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.4em;
+}
+
+.landing__hero {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 2em;
+  border-radius: 8px;
+}
