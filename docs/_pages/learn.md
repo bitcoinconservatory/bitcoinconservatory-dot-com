@@ -5,5 +5,5 @@ permalink: /learn/
 ---
 
 <div markdown="0">
-{% include courses-list.html %}
+{% include lessons-list.html %}
 </div>
