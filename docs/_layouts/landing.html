@@ -4,10 +4,28 @@ layout: default
 <section class="landing">
   <div class="landing__inner">
     {% if page.hero_image %}
-      <img src="{{ page.hero_image | relative_url }}"
-           alt="{{ page.hero_alt | default: page.title }}"
-           class="landing__hero" />
+      <div class="landing__hero-wrap">
+        <div class="landing__glow"></div>
+        <img src="{{ page.hero_image | relative_url }}"
+             alt="{{ page.hero_alt | default: page.title }}"
+             class="landing__hero" />
+      </div>
     {% endif %}
+    <svg class="landing__curve" viewBox="0 0 800 120" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="lc-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#38547a" stop-opacity="0"/>
+          <stop offset="50%" stop-color="#8ab4cc" stop-opacity="0.6"/>
+          <stop offset="100%" stop-color="#38547a" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <path d="M0,80 C100,20 200,100 300,60 C400,20 500,100 600,50 C700,10 750,90 800,40"
+            fill="none" stroke="url(#lc-grad)" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M0,100 C150,50 250,80 350,60 C450,40 550,90 650,70 C720,55 780,85 800,60"
+            fill="none" stroke="url(#lc-grad)" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+      <path d="M-20,110 Q200,30 400,100 T820,50"
+            fill="none" stroke="url(#lc-grad)" stroke-width="0.8" stroke-linecap="round" opacity="0.3"/>
+    </svg>
     <h1 class="landing__title">{{ page.title }}</h1>
     <p class="landing__tagline">{{ page.tagline }}</p>
     {% if page.cta_label and page.cta_url %}
