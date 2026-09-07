@@ -13,25 +13,47 @@
 {% assign words_sorted = words | uniq | sort_natural %}
 
 {% if words_sorted.size > 0 %}
-  <ul class="taxonomy__index">
-    {% for word in words_sorted %}
-      <li><a href="#{{ word | slugify }}">{{ word }}</a></li>
-    {% endfor %}
-  </ul>
-
+<ul class="taxonomy__index">
   {% for word in words_sorted %}
-    <section id="{{ word | slugify }}" class="taxonomy__section">
-      <h2 class="taxonomy__section-title">{{ word }}</h2>
-      <ul class="entry-list">
-        {% for item in items %}
-          {% if item[field] contains word %}
-            <li class="entry">
-              <a class="entry__title" href="{{ item.url | relative_url }}">{{ item.title }}</a>
-              {% if item.excerpt %}<span class="entry__excerpt">{{ item.excerpt | strip_html | truncatewords: 30 }}</span>{% endif %}
-            </li>
-          {% endif %}
-        {% endfor %}
-      </ul>
-    </section>
+    <li>
+      <a href="#{{ word | slugify }}">
+        {% assign parts = word | split: "-" %}
+        {% for part in parts %}{{ part | capitalize }}{% unless forloop.last %} {% endunless %}{% endfor %}
+      </a>
+    </li>
   {% endfor %}
+</ul>
+
+{% for word in words_sorted %}
+  {% assign parts = word | split: "-" %}
+  {% capture display_word %}{% for part in parts %}{{ part | capitalize }}{% unless forloop.last %} {% endunless %}{% endfor %}{% endcapture %}
+  <section id="{{ word | slugify }}" class="taxonomy__section">
+    <div class="taxonomy__header">
+      <svg class="taxonomy__section-curve" viewBox="0 0 600 16" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="tc-{{ word | slugify }}" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#8ab4cc" stop-opacity="0"/>
+            <stop offset="50%" stop-color="#8ab4cc" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#8ab4cc" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <path d="M0,12 C150,2 300,14 450,6 C525,3 580,10 600,8"
+              fill="none" stroke="url(#tc-{{ word | slugify }})" stroke-width="1" stroke-linecap="round"/>
+      </svg>
+      <h2 class="taxonomy__section-title">{{ display_word }}</h2>
+      {% assign count = items | where: field, word | size %}
+      <span class="taxonomy__count">{% if count == 1 %}1 lesson{% else %}{{ count }} lessons{% endif %}</span>
+    </div>
+    <ul class="entry-list">
+      {% for item in items %}
+        {% if item[field] contains word %}
+          <li class="entry">
+            <a class="entry__title" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+            {% if item.excerpt %}<span class="entry__excerpt">{{ item.excerpt | strip_html | truncatewords: 30 }}</span>{% endif %}
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </section>
+{% endfor %}
 {% endif %}
