@@ -15,18 +15,15 @@
 {% if words_sorted.size > 0 %}
 <ul class="taxonomy__index">
   {% for word in words_sorted %}
-    <li>
-      <a href="#{{ word | slugify }}">
-        {% assign parts = word | split: "-" %}
-        {% for part in parts %}{{ part | capitalize }}{% unless forloop.last %} {% endunless %}{% endfor %}
-      </a>
-    </li>
+    {% assign parts = word | split: "-" %}
+    {% capture display_word %}{% for part in parts %}{% if forloop.first %}{{ part | capitalize }}{% else %} {{ part | capitalize }}{% endif %}{% endfor %}{% endcapture %}
+    <li><a href="#{{ word | slugify }}">{{ display_word }}</a></li>
   {% endfor %}
 </ul>
 
 {% for word in words_sorted %}
   {% assign parts = word | split: "-" %}
-  {% capture display_word %}{% for part in parts %}{{ part | capitalize }}{% unless forloop.last %} {% endunless %}{% endfor %}{% endcapture %}
+  {% capture display_word %}{% for part in parts %}{% if forloop.first %}{{ part | capitalize }}{% else %} {{ part | capitalize }}{% endif %}{% endfor %}{% endcapture %}
   <section id="{{ word | slugify }}" class="taxonomy__section">
     <div class="taxonomy__header">
       <svg class="taxonomy__section-curve" viewBox="0 0 600 16" preserveAspectRatio="none" aria-hidden="true">
@@ -41,8 +38,6 @@
               fill="none" stroke="url(#tc-{{ word | slugify }})" stroke-width="1" stroke-linecap="round"/>
       </svg>
       <h2 class="taxonomy__section-title">{{ display_word }}</h2>
-      {% assign count = items | where: field, word | size %}
-      <span class="taxonomy__count">{% if count == 1 %}1 lesson{% else %}{{ count }} lessons{% endif %}</span>
     </div>
     <ul class="entry-list">
       {% for item in items %}

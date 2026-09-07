@@ -251,11 +251,10 @@ blockquote {
   max-width: var(--max-width);
   margin: 0 auto 2.5em;
   text-align: center;
-  position: relative;
 }
 .taxonomy-hero__curve {
   display: block;
-  width: 80%;
+  width: 100%;
   max-width: 22em;
   margin: 0 auto 1.25em;
   opacity: 0.7;

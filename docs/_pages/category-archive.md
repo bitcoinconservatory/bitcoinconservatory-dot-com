@@ -5,8 +5,6 @@ permalink: /categories/
 collection_ref: lessons
 taxonomy_field: categories
 taxonomy_grouping: true
-sidebar:
-  nav: "learn"
 ---
 
 <div class="taxonomy-hero">
@@ -27,6 +25,6 @@ sidebar:
   <p>Categories group lessons into broad areas of study. Click one to jump to its section, or scroll through everything below.</p>
 </div>
 
-<div markdown="0">
-{% include lessons-by-taxonomy.html %}
+<div class="taxonomy-content">
+  {% include lessons-by-taxonomy.html %}
 </div>
